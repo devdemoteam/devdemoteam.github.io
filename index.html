@@ -2,70 +2,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Uusimaa, Finland Map</title>
-    <style>
-        body {
-            font-family: Inter, sans-serif;
-            text-align: center;
-            margin: 40px;
-        }
-        iframe {
-            width: 100%;
-            height: 700px;
-            border: 8px solid #007BFF;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        #search-container {
-            margin-top: 70px;
-        }
-        input[type="text"] {
-            padding: 10px;
-            width: 300px;
-            font-size: 16px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Uusimaa, Finland Map</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      text-align: center;
+      margin: 40px;
+    }
+
+    .map-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      border: 4px solid #007BFF;
+      border-radius: 8px;
+    }
+
+    .map-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
 </head>
 <body>
-    <h1>Map of Uusimaa, Finland</h1>
+  <h1>Map of Uusimaa, Finland</h1>
 
+  <div class="map-container">
     <iframe
-        id="mapFrame"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d190821.1044910617!2d24.4381443!3d60.2054916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x469209f6f6e6e6e7%3A0x123456789abcdef!2sUusimaa%2C%20Finland!5e0!3m2!1sen!2sfi!4v1700000000000!5m2!1sen!2sfi"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrerlocation...">
-        <button onclick="searchLocation()">Search</button>
-    </div>
-
-    <script>
-        function searchLocation() {
-            const input = document.getElementById('locationInput').value;
-            const mapFrame = document.getElementById('mapFrame');
-            const query = encodeURIComponent(input + ', Uusimaa, Finland');
-            mapFrame.src = `https://www.google.com/maps?q=${query}&output=embed`;
-        }
-
-        // Trigger search on Enter key
-        document.getElementById('locationInput').addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                searchLocation();
-            }
-        });
-    </script>
-</body>
-</html>
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d190821.1044910617!2d24.4381443!3d60.2054916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x469209f6f6e6e6e7%3A0x123456789abcdef!2sUusimaa%2C%20Finland!5e0!3m2!1sen!2sfi!4v1700000000000!5m2!1sen!2sfi"
+      allowfullscreen=""
